@@ -134,11 +134,7 @@ class GameObject {
         }
         strike(target) {
             target.healthPoints = target.healthPoints - 4;
-            if (target.healthPoints <= 0) {
-              return target.destroy();
-            }else{
-              return target.takeDamage();
-            }
+            return ((target.healthPoints <= 0) ? target.destroy() : target.takeDamage());
         }
     }
   
