@@ -26,6 +26,9 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student.name} receives a perfect score on ${subject}.`)
     }
+    gradeAssignment(student) {
+        return student.grade = ((Math.floor(Math.random() * (1 - 0 + 1)) + 0) ? student.grade + 5 : student.grade - 5);
+    }
 }
 
 class Student extends Person {
@@ -34,6 +37,7 @@ class Student extends Person {
         this.previousBackground = studentData.previousBackground;
         this.className = studentData.className;
         this.favSubjects = studentData.favSubjects;
+        this.grade = studentData.grade;
     }
 
     listsSubjects() {
@@ -46,6 +50,9 @@ class Student extends Person {
     }
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
+    }
+    graduate() {
+        console.log(((this.grade >= 70)? `${this.name} has graduated!!!` : `${this.name} must have more assignments graded to graduate.`));
     }
 }
 
@@ -71,7 +78,8 @@ const ryan = new Student({
     gender: 'M',
     previousBackground: 'Barista',
     className: 'Webpt6',
-    favSubjects: ['HTML', 'CSS', 'Javascript']
+    favSubjects: ['HTML', 'CSS', 'Javascript'],
+    grade : 70
 });
 
 const ari = new ProjectManager({
@@ -105,5 +113,17 @@ ryan.sprintChallenge('Javascript Fundamentals');
 // PM methods:
 ari.standUp('Webpt6_ari');
 ari.debugsCode(ryan, 'Javascript classes')
+
+// Stretch methods:
+ari.gradeAssignment(ryan);
+console.log(ryan.grade);
+ryan.graduate();
+keiran.gradeAssignment(ryan);
+ari.gradeAssignment(ryan);
+keiran.gradeAssignment(ryan);
+console.log(ryan.grade);
+ryan.graduate();
+
+
 
 
