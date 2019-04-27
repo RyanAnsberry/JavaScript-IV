@@ -52,7 +52,7 @@ class Student extends Person {
         console.log(`${this.name} has begun sprint challenge on ${subject}.`);
     }
     graduate() {
-        console.log(((this.grade >= 70)? `${this.name} has graduated!!!` : `${this.name} must have more assignments graded to graduate.`));
+        console.log(((this.grade >= 70)? `${this.name} has graduated!!!` : `${this.name} must have more assignments graded to graduate. Grade: ${this.grade}`));
     }
 }
 
@@ -82,6 +82,28 @@ const ryan = new Student({
     grade : 70
 });
 
+const bill = new Student({
+    name: 'Bill',
+    location: 'Pittsburgh',
+    age: 34,
+    gender: 'M',
+    previousBackground: 'Chef',
+    className: 'Webpt6',
+    favSubjects: ['HTML', 'Javascript'],
+    grade : 50
+});
+
+const sam = new Student({
+    name: 'Sam',
+    location: 'Hong Kong',
+    age: 28,
+    gender: 'F',
+    previousBackground: 'Student',
+    className: 'Webpt6',
+    favSubjects: ['HTML', 'Javascript'],
+    grade : 95
+});
+
 const ari = new ProjectManager({
     name: 'Ari',
     location: 'SoCal',
@@ -89,6 +111,15 @@ const ari = new ProjectManager({
     gender: 'M',
     gradClassName: 'Labs10',
     favInstructor: 'Josh'
+});
+
+const michael = new ProjectManager({
+    name: 'Michael',
+    location: 'Kentucky',
+    age: 25,
+    gender: 'M',
+    gradClassName: 'Labs10',
+    favInstructor: 'Dan'
 });
 
 const keiran = new Instructor({
@@ -99,6 +130,16 @@ const keiran = new Instructor({
     specialty: 'Full Stack Web',
     favLanguage: 'Javascript',
     catchPhrase: 'Those are just hotdogs...'
+});
+
+const dan = new Instructor({
+    name: 'Dan',
+    location: 'mid-west',
+    age: 34,
+    gender: 'M',
+    specialty: 'Full Stack Web',
+    favLanguage: 'Javascript',
+    catchPhrase: 'Check it out!'
 });
 
 // Instructor methods:
@@ -112,17 +153,21 @@ ryan.sprintChallenge('Javascript Fundamentals');
 
 // PM methods:
 ari.standUp('Webpt6_ari');
-ari.debugsCode(ryan, 'Javascript classes')
+ari.debugsCode(ryan, 'Javascript classes');
+michael.debugsCode(bill, 'VScode');
+michael.standUp('Webpt6_fri');
 
 // Stretch methods:
 ari.gradeAssignment(ryan);
 console.log(ryan.grade);
 ryan.graduate();
-keiran.gradeAssignment(ryan);
-ari.gradeAssignment(ryan);
+keiran.gradeAssignment(sam);
+ari.gradeAssignment(bill);
 keiran.gradeAssignment(ryan);
 console.log(ryan.grade);
 ryan.graduate();
+sam.graduate();
+bill.graduate();
 
 
 
